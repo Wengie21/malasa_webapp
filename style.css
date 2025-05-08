@@ -1,0 +1,178 @@
+body {
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    height: 100%;
+    background-color: #081826; /* Dim bluish dark mode background */
+    color: white; /* Ensure text is readable on the dark background */
+}
+
+header {
+    display: flex;
+    justify-content: center;      
+    align-items: center;          
+    padding: 10px 20px;
+    background-color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 50px;   
+    color: gold;                
+}
+
+.logo {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    gap: 20px; 
+    color: gold;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;              
+}
+
+nav a {
+    text-decoration: none;
+    color: gold; 
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: white;
+}
+
+.bgcontainer {
+    position: relative; /* Enable positioning for child elements */
+    display: flex;
+    justify-content: center;   
+    align-items: center;      
+    height: 50vh;               
+}
+
+.img {
+    margin-top: 120px;
+    max-width: 800px;
+    max-height: 500px;
+    width: 100%;
+    height: auto;
+    display: block;
+    box-shadow: inset -10px 0 15px rgba(0, 0, 0, 0.3); /* Shadow on the left side inside the image */
+    
+}
+
+.txt1, .txt2 {
+    position: absolute; /* Position the text relative to the .bgcontainer */
+    top: 50%; /* Adjust vertical position */
+    left: 38%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white; /* Ensure text is readable */
+    font-size: 24px; /* Adjust font size */
+    text-align: center; /* Center the text */
+    font-weight: bold;
+}
+
+.txt2 {
+    top: 60%; /* Position below txt1 */
+}
+
+.btnRecipes {
+    position: absolute; /* Position the button relative to the .bgcontainer */
+    top: 75%; /* Center vertically */
+    left: 36%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to center */
+    background-color: gold; /* Match the theme color */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+}
+
+.btnRecipes:hover {
+    background-color: white; /* Lighter hover effect */
+    color: black;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+.custom-hr {
+    border: 15px solid grey; /* Neutral grey color */
+    margin: 120px auto; /* Add vertical spacing and center it */
+    width: 100%; /* Adjust width to make it visually appealing */
+    max-width: 1500px; /* Same max-width as the image */
+    opacity: 0.7; /* Slight transparency for a subtle effect */
+}
+
+.txtRecipe {
+    text-align: center; /* Center the text horizontally */
+    margin-top: 20px; /* Add spacing above the text */
+    font-size: 24px; /* Adjust font size as needed */
+    color: gold; /* Match the theme color */
+    margin-bottom: 80px;
+}
+
+.card-container {
+    display: flex; /* Arrange cards horizontally */
+    justify-content: space-between; /* Add space between cards */
+    align-items: stretch; /* Make all cards the same height */
+    gap: 20px; /* Add spacing between cards */
+    margin: 20px auto; /* Center the container and add vertical spacing */
+    max-width: 1400px; /* Limit the width of the container */
+}
+
+.card-link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from the card */
+    flex: 1; /* Ensure all cards take equal space */
+}
+
+.card {
+    background-color: white; /* Card background */
+    color: black; /* Text color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 20px; /* Inner spacing */
+    text-align: center; /* Center text inside the card */
+    height: 400px; /* Set a consistent height for all cards */
+    display: flex; /* Enable flexbox for card content */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute content evenly */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+.card-img {
+    width: 100%; /* Make the image fit the card */
+    height: 200px; /* Set a consistent height for images */
+    object-fit: cover; /* Ensure the image scales properly */
+    border-radius: 10px; /* Match the card's rounded corners */
+    margin-bottom: 10px; /* Add spacing below the image */
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555; /* Slightly dimmed text color */
+}
+
+@media (max-width: 768px) {
+    .btnRecipes .txt1 .txt2{
+        font-size: 14px;      
+        padding:8px 16px;         
+    }
+}

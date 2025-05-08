@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        header {
+            position: fixed; /* Make the header stick to the top */
+            top: 0; /* Position it at the very top */
+            left: 0; /* Align it to the left */
+            width: 100%; /* Make it span the full width of the screen */
+            background-color: black; /* Keep the background color */
+            z-index: 1000; /* Ensure it stays above other elements */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="h4 mb-0">Ma-lasa</h1>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#recipes-section">Recipes</a> <!-- Link to the Recipes section -->
+        </nav>
+    </header>
+    
+    <div class="bgcontainer">
+        <img src="lumpia.jpg" alt="Background" class="img">
+        <h1 class="txt1">Filipino dishes that</h1>
+        <br>
+        <h1 class="txt2"> you know and love</h1>
+        <button class="btnRecipes" onclick="scrollToRecipes()">See Recipes</button> <!-- Add onclick -->
+    </div>
+
+<hr class="custom-hr">
+
+<h1 id="recipes-section" class="txtRecipe">Recipes</h1> <!-- Add id for the Recipes section -->
+
+<div class="card-container">
+    <a href="Adobo.html" class="card-link">
+        <div class="card">
+            <img src="adobo.jpg" alt="Adobo" class="card-img">
+            <h3 class="card-title">Adobo</h3>
+        </div>
+    </a>
+    <a href="Sinigang.html" class="card-link">
+        <div class="card">
+            <img src="sinigang.jpg" alt="Sinigang" class="card-img">
+            <h3 class="card-title">Sinigang</h3>
+        </div>
+    </a>
+    <a href="Karekare.html" class="card-link">
+        <div class="card">
+            <img src="karekare.jpg" alt="Kare kare" class="card-img">
+            <h3 class="card-title">Kare kare</h3>
+        </div>
+    </a>
+    <a href="Laing.html" class="card-link">
+        <div class="card">
+            <img src="laing.jpg" alt="Laing" class="card-img">
+            <h3 class="card-title">Laing</h3>
+        </div>
+    </a>
+</div>
+
+<div class="card-container">
+    <a href="Bicolexpress.html" class="card-link">
+        <div class="card">
+            <img src="bicolexpress.jpg" alt="Bicol Express" class="card-img">
+            <h3 class="card-title">Bicol Express</h3>
+        </div>
+    </a>
+    <a href="Shanghai.html" class="card-link">
+        <div class="card">
+            <img src="shanghai.jpg" alt="Shanghai" class="card-img">
+            <h3 class="card-title">Lumpiang Shanghai</h3>
+        </div>
+    </a>
+    <a href="Tinola.html" class="card-link">
+        <div class="card">
+            <img src="tinola.jpg" alt="Tinolang Manok" class="card-img">
+            <h3 class="card-title">Tinolang Manok</h3>
+        </div>
+    </a>
+    <a href="Menudo.html" class="card-link">
+        <div class="card">
+            <img src="menudo.jpg" alt="Menudo" class="card-img">
+            <h3 class="card-title">Menudo</h3>
+        </div>
+    </a>
+</div>
+
+<div class="card-container">
+    <a href="Caldereta.html" class="card-link">
+        <div class="card">
+            <img src="caldereta.jpg" alt="Caldereta" class="card-img">
+            <h3 class="card-title">Caldereta</h3>
+        </div>
+    </a>
+    <a href="tokwatbaboy.html" class="card-link">
+        <div class="card">
+            <img src="tokwatbaboy.jpg" alt="Tokwa't Baboy" class="card-img">
+            <h3 class="card-title">Tokwa't Baboy</h3>
+        </div>
+    </a>
+    <a href="Chopsuey.html" class="card-link">
+        <div class="card">
+            <img src="chopsuey.jpg" alt="Chopsuey" class="card-img">
+            <h3 class="card-title">Chopsuey</h3>
+        </div>
+    </a>
+    <a href="Turon.html" class="card-link">
+        <div class="card">
+            <img src="Turon.jpg" alt="Turon" class="card-img">
+            <h3 class="card-title">Turon</h3>
+        </div>
+    </a>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function scrollToRecipes() {
+            document.getElementById('recipes-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

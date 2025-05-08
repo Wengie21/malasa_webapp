@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: 'Pacifico', cursive;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    justify-content: center;       /* center everything horizontally */
+    align-items: center;           /* center everything vertically */
+    padding: 10px 20px;
+    background-color: black;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 50px;                    /* space between logo and nav */
+}
+
+.logo {
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    gap: 20px;                   /* space between nav links */
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #007BFF;
+}
+
+.bgcontainer {
+    display: flex;
+    justify-content: center;   
+    align-items: center;      
+    height: 50vh;               
+}
+
+.img {
+    margin-top: 150px;
+    max-width: 800px;           
+    max-height: 500px;          
+    width: 100%;               
+    height: auto;              
+    display: block; 
+    box-shadow: 8px 10px 12px 12px grey;          
+}
+
+html, body {
+    scroll-behavior: smooth;
+}

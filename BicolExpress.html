@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicol Express</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="h4 mb-0">Ma-lasa</h1>
+        </div>
+        <nav>
+            <a href="Homeindex.html">Home</a>
+            <a href="Homeindex.html#recipes-section">Recipes</a>
+        </nav>
+    </header>
+
+    <div class="Foodtitle">
+        <h1 class="txtRecipe">Bicol Express</h1>
+        <hr class="custom-hr">
+        <img src="bicolexpress.jpg" alt="Bicol Express" class="card-img">
+        <h3 class="card-title">Bicol Express</h3>
+        <p class="card-text">Bicol Express is a spicy Filipino dish made with pork, coconut milk, shrimp paste, and chili peppers. Originating from the Bicol region, it is known for its creamy and fiery flavor, making it a favorite among those who love spicy food. This dish is best served with steamed rice.</p>
+        <button id="ttsButton" class="btn btn-primary">Read Aloud</button>
+        <button id="pauseButton" class="btn btn-secondary">Pause</button>
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="container">
+        <h2>Ingredients</h2>
+        <ul>
+            <li>1 kg pork belly, cut into cubes</li>
+            <li>2 cups coconut milk</li>
+            <li>1/2 cup shrimp paste (bagoong)</li>
+            <li>5-6 red chili peppers, sliced</li>
+            <li>3 cloves garlic, minced</li>
+            <li>1 onion, chopped</li>
+            <li>1 thumb-sized piece of ginger, minced</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <hr class="custom-hr">
+        <h2>Cooking Time</h2>
+        <p>Preparation Time: 15 minutes</p>
+        <p>Cooking Time: 45 minutes</p>
+        <p>Total Time: 1 hour</p>
+        <hr class="custom-hr">
+        <h2>Instructions</h2>
+        <ol>
+            <li>In a pot, sauté garlic, onion, and ginger until fragrant.</li>
+            <li>Add the pork belly and cook until lightly browned.</li>
+            <li>Stir in the shrimp paste and cook for 2 minutes.</li>
+            <li>Pour in the coconut milk and bring to a simmer.</li>
+            <li>Add the chili peppers and cook until the pork is tender and the sauce has thickened.</li>
+            <li>Season with salt and pepper to taste.</li>
+            <li>Serve hot with steamed rice.</li>
+        </ol>
+    </div>
+
+    <script>
+        const ttsButton = document.getElementById('ttsButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const speech = new SpeechSynthesisUtterance();
+
+        // Ensure voices are loaded before setting the speech properties
+        function setVoice() {
+            const voices = window.speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                speech.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+            }
+        }
+
+        // Load voices and set the desired voice
+        window.speechSynthesis.onvoiceschanged = setVoice;
+
+        ttsButton.addEventListener('click', function () {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            } else {
+                const headerText = document.querySelector('header').innerText;
+                const buttonText = Array.from(document.querySelectorAll('button')).map(button => button.innerText).join(' ');
+                const bodyText = document.body.innerText;
+                const mainContent = bodyText.replace(headerText, '').replace(buttonText, '').trim();
+                speech.text = mainContent;
+                speech.lang = 'en-US';
+                speech.rate = 1;
+                speech.pitch = 1;
+                window.speechSynthesis.speak(speech);
+            }
+        });
+
+        pauseButton.addEventListener('click', function () {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.pause();
+            }
+        });
+    </script>
+</body>
+</html>

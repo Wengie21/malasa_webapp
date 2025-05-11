@@ -57,31 +57,31 @@
     </div>
 
     <script>
-        // Text-to-Speech functionality
+        
         const ttsButton = document.getElementById('ttsButton');
         const pauseButton = document.getElementById('pauseButton');
         const speech = new SpeechSynthesisUtterance();
 
         ttsButton.addEventListener('click', function() {
             if (window.speechSynthesis.paused) {
-                window.speechSynthesis.resume(); // Resume if paused
+                window.speechSynthesis.resume();
             } else {
-                // Exclude the header and buttons by targeting only the main content
+                
                 const headerText = document.querySelector('header').innerText;
                 const buttonText = Array.from(document.querySelectorAll('button')).map(button => button.innerText).join(' ');
                 const bodyText = document.body.innerText;
                 const mainContent = bodyText.replace(headerText, '').replace(buttonText, '').trim(); // Remove header and button text
-                speech.text = mainContent; // Set the text to be read
-                speech.lang = 'en-US'; // Set language
-                speech.rate = 1; // Set speed
-                speech.pitch = 1; // Set pitch
+                speech.text = mainContent; 
+                speech.lang = 'en-US'; 
+                speech.rate = 1; 
+                speech.pitch = 1; 
                 window.speechSynthesis.speak(speech);
             }
         });
 
         pauseButton.addEventListener('click', function() {
             if (window.speechSynthesis.speaking) {
-                window.speechSynthesis.pause(); // Pause the speech
+                window.speechSynthesis.pause(); 
             }
         });
     </script>

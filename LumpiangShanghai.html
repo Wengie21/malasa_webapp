@@ -1,0 +1,102 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumpiang Shanghai</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="h4 mb-0">Ma-lasa</h1>
+        </div>
+        <nav>
+            <a href="Homeindex.html">Home</a>
+            <a href="Homeindex.html#recipes-section">Recipes</a>
+        </nav>
+    </header>
+
+    <div class="Foodtitle">
+        <h1 class="txtRecipe">Lumpiang Shanghai</h1>
+        <hr class="custom-hr">
+        <img src="shanghai.jpg" alt="Lumpiang Shanghai" class="card-img">
+        <h3 class="card-title">Lumpiang Shanghai</h3>
+        <p class="card-text">Lumpiang Shanghai is a popular Filipino spring roll filled with a mixture of ground pork, vegetables, and seasonings. These crispy and savory rolls are often served as appetizers or party food, paired with sweet and sour sauce for dipping. They are a staple in Filipino celebrations and gatherings.</p>
+        <button id="ttsButton" class="btn btn-primary">Read Aloud</button>
+        <button id="pauseButton" class="btn btn-secondary">Pause</button>
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="container">
+        <h2>Ingredients</h2>
+        <ul>
+            <li>500g ground pork</li>
+            <li>1 carrot, finely grated</li>
+            <li>1 onion, finely chopped</li>
+            <li>3 cloves garlic, minced</li>
+            <li>1 egg</li>
+            <li>1/4 cup breadcrumbs</li>
+            <li>Salt and pepper to taste</li>
+            <li>Spring roll wrappers</li>
+            <li>Oil for frying</li>
+        </ul>
+        <hr class="custom-hr">
+        <h2>Cooking Time</h2>
+        <p>Preparation Time: 20 minutes</p>
+        <p>Cooking Time: 30 minutes</p>
+        <p>Total Time: 50 minutes</p>
+        <hr class="custom-hr">
+        <h2>Instructions</h2>
+        <ol>
+            <li>In a bowl, combine ground pork, carrot, onion, garlic, egg, breadcrumbs, salt, and pepper. Mix well.</li>
+            <li>Place a small amount of the mixture on a spring roll wrapper and roll tightly, sealing the edges with water.</li>
+            <li>Repeat until all the filling is used.</li>
+            <li>Heat oil in a frying pan over medium heat.</li>
+            <li>Fry the spring rolls in batches until golden brown and crispy.</li>
+            <li>Drain on paper towels to remove excess oil.</li>
+            <li>Serve hot with sweet and sour sauce for dipping.</li>
+        </ol>
+    </div>
+
+    <script>
+        const ttsButton = document.getElementById('ttsButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const speech = new SpeechSynthesisUtterance();
+
+        // Ensure voices are loaded before setting the speech properties
+        function setVoice() {
+            const voices = window.speechSynthesis.getVoices();
+            if (voices.length > 0) {
+                speech.voice = voices.find(voice => voice.lang === 'en-US') || voices[0];
+            }
+        }
+
+        // Load voices and set the desired voice
+        window.speechSynthesis.onvoiceschanged = setVoice;
+
+        ttsButton.addEventListener('click', function () {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            } else {
+                const headerText = document.querySelector('header').innerText;
+                const buttonText = Array.from(document.querySelectorAll('button')).map(button => button.innerText).join(' ');
+                const bodyText = document.body.innerText;
+                const mainContent = bodyText.replace(headerText, '').replace(buttonText, '').trim();
+                speech.text = mainContent;
+                speech.lang = 'en-US';
+                speech.rate = 1;
+                speech.pitch = 1;
+                window.speechSynthesis.speak(speech);
+            }
+        });
+
+        pauseButton.addEventListener('click', function () {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.pause();
+            }
+        });
+    </script>
+</body>
+</html>

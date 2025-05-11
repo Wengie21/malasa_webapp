@@ -7,14 +7,17 @@ body {
 }
 
 header {
+    position: sticky; /* Make the header stick to the top */
+    top: 0; /* Stick to the very top of the viewport */
+    z-index: 1000; /* Ensure it stays above other elements */
+    background-color: black; /* Retain the background color */
     display: flex;
-    justify-content: center;      
-    align-items: center;          
+    justify-content: center;
+    align-items: center;
     padding: 10px 20px;
-    background-color: black;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    gap: 50px;   
-    color: gold;                
+    gap: 50px;
+    color: gold;
 }
 
 .logo {
@@ -168,6 +171,43 @@ html, body {
 .card-text {
     font-size: 14px;
     color: #555; /* Slightly dimmed text color */
+}
+
+.Foodtitle {
+    text-align: center; /* Center the content */
+    margin-top: 20px; /* Add spacing above the section */
+    margin-bottom: 80px; /* Add spacing below the section */
+    color: gold; /* Match the theme color */
+}
+
+.Foodtitle h1 {
+    font-size: 24px; /* Adjust font size */
+    color: gold; /* Match the theme color */
+    margin-bottom: 20px; /* Add spacing below the title */
+}
+
+.Foodtitle img {
+    max-width: 800px; /* Match the max-width of the .bgcontainer image */
+    max-height: 500px; /* Match the max-height of the .bgcontainer image */
+    width: 100%; /* Ensure the image scales properly */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Center the image */
+    margin: 20px auto; /* Add spacing and center the image */
+    border-radius: 10px; /* Add rounded corners for consistency */
+    box-shadow: inset -10px 0 15px rgba(0, 0, 0, 0.3); /* Match the shadow style */
+}
+
+.Foodtitle h3 {
+    font-size: 20px; /* Adjust font size for the subtitle */
+    color: white; /* Ensure readability */
+    margin-top: 10px; /* Add spacing above the subtitle */
+}
+
+.Foodtitle p {
+    font-size: 16px; /* Adjust font size for the description */
+    color: white; /* Ensure readability */
+    margin-top: 10px; /* Add spacing above the text */
+    line-height: 1.5; /* Improve readability */
 }
 
 @media (max-width: 768px) {

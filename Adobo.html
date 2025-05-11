@@ -13,16 +13,18 @@
         </div>
         <nav>
             <a href="Homeindex.html">Home</a>
-            <a href="Homeindex.html#recipes-section">Recipes</a> <!-- Link to the Recipes section -->
+            <a href="Homeindex.html#recipes-section">Recipes</a>
         </nav>
     </header>
 
     <div class="Foodtitle">
         <h1 class="txtRecipe">Adobo</h1>
         <hr class="custom-hr">
-        <img src="adobo.jpg" alt="Adobo" class="card-img"> 
+        <img src="adobo.jpg" alt="Adobo" class="card-img">
         <h3 class="card-title">Adobo</h3>
         <p class="card-text">Adobo is a popular Filipino dish made with meat, usually chicken or pork, marinated in vinegar, soy sauce, garlic, and spices. It is then simmered until tender and served with rice. The dish is known for its savory and tangy flavor, making it a favorite comfort food in the Philippines.</p>
+        <button id="ttsButton" class="btn btn-primary">Read Aloud</button>
+        <button id="pauseButton" class="btn btn-secondary">Pause</button>
     </div>
 
     <hr class="custom-hr">
@@ -45,62 +47,6 @@
         <p>Cooking Time: 1 hour</p>
         <p>Total Time: 1 hour 15 minutes</p>
         <hr class="custom-hr">
-        <h2>Nutrition Information</h2>
-        <p>Calories: 350 per serving</p>   
-        <p>Protein: 25g</p>
-        <p>Carbohydrates: 5g</p>
-        <p>Fat: 25g</p>
-        <p>Sodium: 800mg</p>
-        <p>Fiber: 0g</p>
-        <hr class="custom-hr">
-        <h2>Storage Instructions</h2>
-        <p>Store leftovers in an airtight container in the refrigerator for up to 3 days. Reheat before serving.</p>
-        <hr class="custom-hr">
-        <h2>Freezing Instructions</h2>
-        <p>Adobo can be frozen for up to 3 months. Thaw in the refrigerator overnight before reheating.</p>
-        <hr class="custom-hr">
-        <h2>Serving Suggestions</h2>
-        <p>Serve adobo with steamed rice and a side of vegetables. It can also be paired with fried eggs or pickled vegetables for added flavor.</p>
-        <hr class="custom-hr">
-        <h2>Pairing Suggestions</h2>
-        <p>Adobo pairs well with a variety of side dishes, including:</p>
-        <ul>
-            <li>Steamed rice</li>
-            <li>Fried eggs</li>
-            <li>Pickled vegetables</li>
-            <li>Grilled vegetables</li>
-        </ul>
-        <hr class="custom-hr">
-        <h2>Servings</h2> 
-        <p>Serves: 4-6 people</p>
-        <hr class="custom-hr">
-        <h2>Difficulty Level</h2>   
-        <p>Easy</p>
-        <hr class="custom-hr">
-        <h2>Cooking Method</h2>
-        <p>Simmering</p>
-        <hr class="custom-hr">
-        <h2>Course</h2>
-        <p>Main Course</p>
-        <hr class="custom-hr">
-        <h2>Cuisine</h2>
-        <p>Filipino</p>
-        <hr class="custom-hr">
-        <h2>Dietary Restrictions</h2>
-        <p>Gluten-Free</p>
-        <h2>Allergy Information</h2>
-        <p>Contains soy sauce (may contain gluten)</p>
-        <hr class="custom-hr">
-        <h2>Cooking Equipment</h2>
-        <ul>
-            <li>Pot</li>
-            <li>Stirring spoon</li>
-            <li>Measuring cups</li>
-            <li>Knife</li>
-            <li>Cutting board</li>
-            <li>Serving dish</li>
-        </ul>
-        <hr class="custom-hr"> 
         <h2>Instructions</h2>
         <ol>
             <li>In a bowl, combine soy sauce, vinegar, garlic, onion, bay leaves, and peppercorns. Add the meat and marinate for at least 30 minutes.</li>
@@ -110,6 +56,34 @@
         </ol>
     </div>
 
+    <script>
+        // Text-to-Speech functionality
+        const ttsButton = document.getElementById('ttsButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const speech = new SpeechSynthesisUtterance();
 
+        ttsButton.addEventListener('click', function() {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume(); // Resume if paused
+            } else {
+                // Exclude the header and buttons by targeting only the main content
+                const headerText = document.querySelector('header').innerText;
+                const buttonText = Array.from(document.querySelectorAll('button')).map(button => button.innerText).join(' ');
+                const bodyText = document.body.innerText;
+                const mainContent = bodyText.replace(headerText, '').replace(buttonText, '').trim(); // Remove header and button text
+                speech.text = mainContent; // Set the text to be read
+                speech.lang = 'en-US'; // Set language
+                speech.rate = 1; // Set speed
+                speech.pitch = 1; // Set pitch
+                window.speechSynthesis.speak(speech);
+            }
+        });
+
+        pauseButton.addEventListener('click', function() {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.pause(); // Pause the speech
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,89 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinigang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="h4 mb-0">Ma-lasa</h1>
+        </div>
+        <nav>
+            <a href="Homeindex.html">Home</a>
+            <a href="Homeindex.html#recipes-section">Recipes</a>
+        </nav>
+    </header>
+
+    <div class="Foodtitle">
+        <h1 class="txtRecipe">Sinigang</h1>
+        <hr class="custom-hr">
+        <img src="sinigang.jpg" alt="Sinigang" class="card-img">
+        <h3 class="card-title">Sinigang</h3>
+        <p class="card-text">Sinigang is a traditional Filipino soup or stew characterized by its sour and savory flavor. It is typically made with pork, shrimp, or fish, and flavored with tamarind, tomatoes, and various vegetables. This comforting dish is often served with steamed rice and is a staple in Filipino households.</p>
+        <button id="ttsButton" class="btn btn-primary">Read Aloud</button>
+        <button id="pauseButton" class="btn btn-secondary">Pause</button>
+    </div>
+
+    <hr class="custom-hr">
+
+    <div class="container">
+        <h2>Ingredients</h2>
+        <ul>
+            <li>1 kg pork belly or ribs, cut into pieces</li>
+            <li>1 packet tamarind soup mix</li>
+            <li>2 medium tomatoes, quartered</li>
+            <li>1 onion, sliced</li>
+            <li>2 cups water spinach (kangkong)</li>
+            <li>1 cup radish, sliced</li>
+            <li>1 cup eggplant, sliced</li>
+            <li>2-3 green chili peppers</li>
+            <li>Salt and fish sauce to taste</li>
+        </ul>
+        <hr class="custom-hr">
+        <h2>Cooking Time</h2>
+        <p>Preparation Time: 20 minutes</p>
+        <p>Cooking Time: 1 hour</p>
+        <p>Total Time: 1 hour 20 minutes</p>
+        <hr class="custom-hr">
+        <h2>Instructions</h2>
+        <ol>
+            <li>In a pot, bring water to a boil. Add the pork and simmer until tender.</li>
+            <li>Add the tamarind soup mix, tomatoes, and onion. Simmer for 10 minutes.</li>
+            <li>Add the radish, eggplant, and green chili peppers. Cook until the vegetables are tender.</li>
+            <li>Season with salt and fish sauce to taste. Add the water spinach and cook for another 2 minutes.</li>
+            <li>Serve hot with steamed rice.</li>
+        </ol>
+    </div>
+
+    <script>
+        const ttsButton = document.getElementById('ttsButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const speech = new SpeechSynthesisUtterance();
+
+        ttsButton.addEventListener('click', function() {
+            if (window.speechSynthesis.paused) {
+                window.speechSynthesis.resume();
+            } else {
+                const headerText = document.querySelector('header').innerText;
+                const buttonText = Array.from(document.querySelectorAll('button')).map(button => button.innerText).join(' ');
+                const bodyText = document.body.innerText;
+                const mainContent = bodyText.replace(headerText, '').replace(buttonText, '').trim();
+                speech.text = mainContent;
+                speech.lang = 'en-US';
+                speech.rate = 1;
+                speech.pitch = 1;
+                window.speechSynthesis.speak(speech);
+            }
+        });
+
+        pauseButton.addEventListener('click', function() {
+            if (window.speechSynthesis.speaking) {
+                window.speechSynthesis.pause();
+            }
+        });
+    </script>
+</body>
+</html>
